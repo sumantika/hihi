@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto Mono", monospace;
+  background: #f0f0f0;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.clock {
+  display: flex;
+}
+
+.clock div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
+
+  background: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.clock div span {
+  font-size: 90px;
+  font-weight: 1000;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 1000;
+  margin-bottom: 20px;
+  margin-top:100px;
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: x-large;
+  }
+
+  .clock div {
+    width: 70px;
+    height: 70x;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .clock div span {
+    font-size: 25px;
+
+    font-weight: 700;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+}
+body {
+  font-family: "Asap", sans-serif;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+  font-weight:bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: max(35px, 7vw);
+  background-image: radial-gradient(
+    ellipse closest-corner,
+    #f6f2c0 0%,
+    #f6e27a 24%,
+    #cb9b51 78%,
+    #462523 100%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  z-index: 1;
+}
+canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
