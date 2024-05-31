@@ -3,24 +3,65 @@
 </head>
 <body>
 <div class="container">
-  <div class="title"></div>
+  <div class="title">My BIRTHDAY IS IN:</div>
   <div class="clock">
     <div class="days">
       <span id="days">00</span>
       <p>DAYS</p>
     </div>
-   
+    <div class="hours">
+      <span id="hours">00</span>
+      <p>HOURS</p>
+    </div>
+    <div class="minutes">
+      <span id="minutes">00</span>
+      <p>MINS</p>
+    </div>
+    <div class="seconds">
+      <span id="seconds">00</span>
+      <p>SECS</p>
+    </div>
   </div>
 </div>
 </body>
 <script>
   
+const startstop = document.getElementById("startstop");
+const seconds = document.getElementById("seconds");
+const minutes = document.getElementById("minutes");
+const hours = document.getElementById("hours");
 const days = document.getElementById("days");
 
 const today = new Date();
+const todayAt12 = new Date();
+todayAt12.setHours(0, 0, 0, 0);
+const birthdate = new Date("06/19/2024");
+let totalSeconds = 0;
+if (todayAt12.getTime() === birthdate.getTime()) {
+  totalSeconds = 0;
+} else {
 
-const birthdate = new Date("2024-06-19");
-var oneDay = 24 * 60 * 60 * 1000;
-var diffDays = Math.round(Math.abs((today.getTime() -birthdate.getTime()) / (oneDay)));
-days.innerText = diffDays;
+  totalSeconds = (birthdate - today) / 1000;
+}
+
+const setDisplay = (sec) => {
+  days.innerText = String(Math.floor(sec / (24 * 60 * 60))).padStart(2, "0");
+  sec = sec % (24 * 60 * 60);
+  hours.innerText = String(Math.floor(sec / (60 * 60))).padStart(2, "0");
+  sec = sec % (60 * 60);
+  minutes.innerText = String(Math.floor(sec / 60)).padStart(2, "0");
+  sec = sec % 60;
+  seconds.innerText = String(Math.floor(sec)).padStart(2, "0");
+};
+
+const timer = setInterval(() => {
+  if (totalSeconds <= 0) {
+    totalSeconds = 0;
+    clearInterval(timer);
+    return;
+  }
+  totalSeconds -= 1;
+  setDisplay(totalSeconds);
+}, 1000);
+
 </script>
