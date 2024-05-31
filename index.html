@@ -9,18 +9,18 @@
       <span id="days">00</span>
       <p>DAYS</p>
     </div>
-    <div class="hours">
-      <span id="hours">00</span>
-      <p>HOURS</p>
-    </div>
-    <div class="minutes">
-      <span id="minutes">00</span>
-      <p>MINS</p>
-    </div>
-    <div class="seconds">
-      <span id="seconds">00</span>
-      <p>SECS</p>
-    </div>
+   
   </div>
 </div>
 </body>
+<script>
+  
+const days = document.getElementById("days");
+
+const today = new Date();
+
+const birthdate = new Date("2024-06-19");
+var oneDay = 24 * 60 * 60 * 1000;
+var diffDays = Math.round(Math.abs((today.getTime() -birthdate.getTime()) / (oneDay)));
+days.innerText = diffDays;
+</script>
